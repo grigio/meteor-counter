@@ -1,0 +1,60 @@
+<head>
+  <title>meteor-counter</title>
+    <!-- Loading Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="css/flat-ui.css" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="span3">
+  <div class="tile tile-hot">
+    <h3 class="tile-title">Cool Counter</h3>
+    <p>
+      Show your love for this counter clicking the button.<br>
+      If you want to see the chart move <strong>open a new window a refresh</strong>.
+    </p>
+  </div>
+</div>
+
+<div class="span6">
+  <div class="tile">
+    {{> counter }}
+    <canvas id="chart" width="400" height="100"></canvas>
+    {{> online_users_list}}
+    <p>
+      If You want to show some ♥ to me,<br> please donate some bitcoins:<br>
+      <br>
+        <strong>1M9xdzcrDddgTwoFpAwErEvkbVeqR1zYXY</strong>
+      <br><br>
+      <a href="https://github.com/grigio/meteor-counter">source</a>
+    </p>
+  </div>
+</div>
+
+</div>
+
+</body>
+
+ <!-- Templates -->
+
+<template name="counter">
+  <h1>Online Users: {{ counter }}</h1>
+</template>
+
+<template name="online_users_list">
+  <h2>Online User Connections</h2>
+  <p> 
+    {{#each online_users }}
+      {{ username }} - ( {{ _id }} ) {{ clicks }}♥ <br>
+    {{/each }}
+  </p>
+  <p><a class="btn btn-primary btn-large btn-block" href="#">
+    Click me
+  </a></p>
+</template>
+
